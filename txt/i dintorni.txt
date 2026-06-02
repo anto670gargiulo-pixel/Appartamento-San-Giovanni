@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="it" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdbd0",
+                        "on-primary-container": "#253e4e",
+                        "on-background": "#1a1c1c",
+                        "primary-container": "#8fa9bc",
+                        "inverse-primary": "#b0cade",
+                        "outline-variant": "#c2c7cc",
+                        "on-secondary-fixed-variant": "#5d4037",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-container": "#795950",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-variant": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed-dim": "#ccc6bc",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#aba59c",
+                        "on-surface": "#1a1c1c",
+                        "primary": "#486173",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#77574d",
+                        "on-secondary-fixed": "#2c160e",
+                        "on-tertiary-fixed": "#1e1b15",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed-variant": "#304a5a",
+                        "primary-fixed": "#cbe6fa",
+                        "tertiary": "#625e56",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e7bdb1",
+                        "background": "#f9f9f9",
+                        "outline": "#73787c",
+                        "primary-fixed-dim": "#b0cade",
+                        "on-tertiary-container": "#3e3b34",
+                        "on-primary-fixed": "#011e2d",
+                        "inverse-surface": "#2f3131",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#486173",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e8e2d8",
+                        "on-surface-variant": "#42474c",
+                        "secondary-container": "#fed3c7",
+                        "on-tertiary-fixed-variant": "#4a463f",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "section-gap-desktop": "96px",
+                        "container-padding-desktop": "80px",
+                        "section-gap-mobile": "48px",
+                        "container-padding-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-[100] bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20"><nav class="flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-20 w-full">
+<div class="text-headline-md font-headline-md tracking-widest text-primary dark:text-inverse-primary uppercase">Appartamento San Giovanni</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="#appartamento">L'Appartamento</a>
+
+
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-semibold text-label-sm font-label-sm" href="#dintorni">I Dintorni</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="#contatti">Contatti</a>
+</nav>
+<button class="md:hidden text-primary" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav></header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+<img alt="Parma Street" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeP9ixOQ-aA0S9GZPEcVAf48ZZMrDrSpIpoClTr-8o4MpBG1H3jUfnuLa_M_faa4GKDH8GPrQNMDtAJNXk-0HuGp8xgQl2iTZZjQOslC08cZtMEO8HU5BFxQLXCy9RjOO753Uz7dSqWW3hwaevHZMQHsO4xRdpE_umerojpaN1ao7q5X4y6waSLgqhaa6ixoqYOB9RAC304n3CNmzRhteWJnhjShiTpOW8zDAat4XnaaxRFWqSS8UzCdSSctqRlqUpzzvonD9Fa7eb">
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="relative z-10 text-center px-container-padding-mobile">
+<h1 class="font-display-lg text-white text-5xl md:text-display-lg mb-4 drop-shadow-lg">Esplora Parma</h1>
+<p class="font-body-lg text-white/90 max-w-xl mx-auto italic">Scopri il fascino senza tempo della Food Valley italiana.</p>
+</div>
+</section>
+<!-- Il Cuore di Parma Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-0 max-w-[1200px] mx-auto fade-in-section is-visible">
+<div class="grid md:grid-cols-2 gap-gutter items-center">
+<div class="space-y-6">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Posizione Strategica</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Il Cuore di Parma</h2>
+<div class="w-12 h-0.5 bg-primary-container"></div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        L'Appartamento San Giovanni si trova in una posizione privilegiata, a pochi passi dai tesori architettonici che hanno reso Parma celebre nel mondo. Uscendo dal portone, vi troverete immersi nella storia medievale e rinascimentale.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="castle">castle</span>
+<div>
+<h4 class="font-bold text-on-surface">Duomo e Battistero</h4>
+<p class="text-label-sm text-outline">A soli 2 minuti a piedi. Capolavori del romanico e gotico padano.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="theater_comedy">theater_comedy</span>
+<div>
+<h4 class="font-bold text-on-surface">Teatro Regio</h4>
+<p class="text-label-sm text-outline">Il tempio della lirica internazionale, a 500 metri di distanza.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="museum">museum</span>
+<div>
+<h4 class="font-bold text-on-surface">Complesso della Pilotta</h4>
+<p class="text-label-sm text-outline">Un viaggio tra arte e storia nel monumentale palazzo ducale.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-tertiary-fixed/30 rounded-xl -z-10 transition-transform group-hover:scale-105"></div>
+<img alt="Parma Detail" class="rounded-xl shadow-lg w-full aspect-[4/3] object-cover border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8JiinDlY2Z4q4GGhyyuqHFHh2T_zEJ17q__83XUJ-uXpL2-6oBYJ9eTxnMV9YrMC6cYV4cZELiUQyXXSlEXppcoWpa8WlSKtBx2GGp9dPyZuYbAlttTWzLbo5-hNif7iCkCIIP28ifDcah2numR9oCUC4w59Qm97A0D6rFc6UZq2sE_fMQL0r87IliIcN4shUrxQO-bqpRj7iEhjviwfs14OBL56gGxUjNqLiasmt1H5yH-X5kMmOUcz5Nm55yDSsqBgVfLrgsJW2">
+</div>
+</div>
+</section>
+<!-- Esperienze Gastronomiche -->
+<section class="bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop fade-in-section is-visible">
+<div class="px-container-padding-mobile md:px-container-padding-desktop max-w-[1200px] mx-auto">
+<div class="text-center mb-12">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Gourmet Experience</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Sapori Autentici</h2>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 grid md:grid-cols-5 h-auto md:h-[400px]">
+<div class="md:col-span-2 relative overflow-hidden">
+<img alt="Ristorante La Forchetta detail" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPUfzJ2RdQBNXpLyjEpwtHQubXsN6IETgWUkbND7d-hKGHsGerh1J4cg3Nbd68nRHp2R4fTKHFaMmWeBCLaUODSQxCEPAClemB0NfyBzfqBtcalVe8Vc5RSuFyxKdCgOdB_YEoTYUMTzw2qc1cDudfAZW3QmwaDdknW-MLbItqTxQPc_wPuocc32RHfsZiZkRmPscOt49J8dDO8QTFcqqD70o6FggD47WX6ZwaRFLtfBrh1BEuM7UGG_ht0FxHPJVhWO_YYpWP4By">
+</div>
+<div class="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-secondary mb-4">Ristorante La Forchetta</h3>
+<p class="text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                            Situato proprio dietro l'angolo, La Forchetta è un'istituzione parmigiana. Qui la tradizione della "Food Valley" incontra una creatività raffinata. Dai salumi DOP ai tortelli d'erbetta, ogni piatto racconta l'amore per questa terra.
+                        </p>
+<div class="flex flex-wrap gap-4 mt-auto">
+<span class="inline-flex items-center gap-2 text-label-sm font-semibold text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="restaurant">restaurant</span>
+                                Cucina Tipica
+                            </span>
+<span class="inline-flex items-center gap-2 text-label-sm font-semibold text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="wine_bar">wine_bar</span>
+                                Cantina Selezionata
+                            </span>
+</div>
+<a class="mt-8 text-secondary font-bold flex items-center gap-2 hover:translate-x-2 transition-transform duration-300" href="#">
+                            Prenota un tavolo <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Mappa Placeholder -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-0 max-w-[1200px] mx-auto fade-in-section is-visible">
+<div class="flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Dove Siamo</h2>
+<div class="w-full h-[450px] bg-surface-container rounded-3xl border border-outline-variant/50 relative overflow-hidden group">
+<img alt="Map showing San Giovanni location" class="w-full h-full object-cover grayscale contrast-125 opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-location="Parma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0D4Ptgeyf9DRaWSonAjuIe7fBLA1r8PfilEJvQnmdJAypjwn8C-wJx1qJZK_vFRNRF60TDg3MSmxOO1Zw5jeU76WDBjOkEC_yQDerOPvmE94kJ7UPw_fm9mZWLmMQeATJAHXJ2KtO8BJgIK7UH827G-fQz1HRQre9UhTGWoSpO8K-IGUBnn5Xf1Q9KhodiIJjzZK2_yU4s5gUI8jRkcre_asW3Is7f2K2UFc9nrkqMCQLriK0Y83tUTdeh7IzQTYZkHBeMpxDMY_k">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-secondary/20 flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-2" data-icon="location_on" data-weight="fill">location_on</span>
+<p class="font-bold text-secondary">San Giovanni Parma</p>
+<p class="text-label-sm text-outline">Via San Giovanni, 43121 Parma</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-center gap-8 bg-surface-container-lowest border-t border-outline-variant/20" id="contatti">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full max-w-[1200px] mx-auto gap-8">
+<div class="flex flex-col gap-4">
+<div class="text-headline-md font-headline-md text-primary tracking-widest uppercase">Appartamento San Giovanni</div>
+<div class="text-on-surface-variant text-body-md font-body-md space-y-1">
+<p class="">Borgo San Biagio 7, 43121 Parma (PR)</p>
+<p class=""><a class="hover:text-secondary transition-colors" href="mailto:agriturismosavioled@alice.it">agriturismosaviole@alice.it</a></p>
+</div>
+</div>
+<div class="flex flex-col md:items-end gap-4">
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Cookies</a>
+</div>
+<p class="text-on-surface-variant text-body-md font-body-md">© 2026 San Giovanni Parma Apartment. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden bg-white/90 dark:bg-inverse-surface/90 backdrop-blur-lg shadow-[0px_-12px_24px_rgba(93,64,55,0.08)] rounded-t-full">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
+<span class="text-label-sm font-label-sm">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="text-label-sm font-label-sm">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-bold py-2 px-4 rounded-full transition-all bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined" data-icon="map" data-weight="fill">map</span>
+<span class="text-label-sm font-label-sm">Mappa</span>
+</a>
+</nav>
+<!-- WhatsApp FAB -->
+<a class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-[0px_12px_24px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform active:scale-95 flex items-center gap-3" href="https://wa.me/390000000000">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="hidden md:inline font-bold">Parla con noi</span>
+</a>
+<script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Sticky Header transparency logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://parma-landing.it/sitemap.xml

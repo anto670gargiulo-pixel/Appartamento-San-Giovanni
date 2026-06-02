@@ -1,0 +1,295 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="it" style="width: 1280px; height: 1466px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Contatti | San Giovanni Parma</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbd0",
+                    "on-primary-container": "#253e4e",
+                    "on-background": "#1a1c1c",
+                    "primary-container": "#8fa9bc",
+                    "inverse-primary": "#b0cade",
+                    "outline-variant": "#c2c7cc",
+                    "on-secondary-fixed-variant": "#5d4037",
+                    "surface-container-high": "#e8e8e8",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#795950",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f3f3f4",
+                    "surface-variant": "#e2e2e2",
+                    "surface-dim": "#dadada",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed-dim": "#ccc6bc",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#aba59c",
+                    "on-surface": "#1a1c1c",
+                    "primary": "#486173",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#77574d",
+                    "on-secondary-fixed": "#2c160e",
+                    "on-tertiary-fixed": "#1e1b15",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-fixed-variant": "#304a5a",
+                    "primary-fixed": "#cbe6fa",
+                    "tertiary": "#625e56",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#e7bdb1",
+                    "background": "#f9f9f9",
+                    "outline": "#73787c",
+                    "primary-fixed-dim": "#b0cade",
+                    "on-tertiary-container": "#3e3b34",
+                    "on-primary-fixed": "#011e2d",
+                    "inverse-surface": "#2f3131",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#486173",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#e8e2d8",
+                    "on-surface-variant": "#42474c",
+                    "secondary-container": "#fed3c7",
+                    "on-tertiary-fixed-variant": "#4a463f",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "section-gap-desktop": "96px",
+                    "container-padding-desktop": "80px",
+                    "section-gap-mobile": "48px",
+                    "container-padding-mobile": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .custom-input {
+            border: none;
+            border-bottom: 1px solid #c2c7cc;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .custom-input:focus {
+            outline: none;
+            border-bottom: 2px solid #77574d;
+            ring: 0;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-20 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20"><div class="text-headline-md font-headline-md tracking-widest text-primary dark:text-inverse-primary uppercase">Appartamento San Giovanni</div><nav class="hidden md:flex gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="#appartamento">L'Appartamento</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="#dintorni">I Dintorni</a><a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-semibold text-label-sm font-label-sm" href="#contatti">Contatti</a></nav><button class="md:hidden text-primary" id="mobile-menu-btn"><span class="material-symbols-outlined">menu</span></button></header>
+<main class="min-h-screen">
+<!-- Hero / Header Section -->
+<section class="pt-20 pb-12 md:pt-32 md:pb-24 px-container-padding-mobile text-center">
+<div class="max-w-[800px] mx-auto reveal active">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4 block">Parla con noi</span>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6">Contattaci</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto">
+                    Siamo a vostra completa disposizione per rendere il vostro soggiorno a Parma indimenticabile. Scriveteci per ogni richiesta o curiosità.
+                </p>
+</div>
+</section>
+<!-- Contact Grid -->
+<section class="px-container-padding-mobile md:px-container-padding-desktop pb-section-gap-mobile md:pb-section-gap-desktop w-full max-w-[1200px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter md:gap-16">
+<!-- Contact Form -->
+<div class="lg:col-span-7 reveal active">
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-outline-variant/30">
+<form class="space-y-8" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2" for="name">Nome Completo</label>
+<input class="custom-input py-2 text-body-md" id="name" name="name" placeholder="Il tuo nome" type="text">
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2" for="email">Indirizzo Email</label>
+<input class="custom-input py-2 text-body-md" id="email" name="email" placeholder="email@esempio.it" type="email">
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2" for="subject">Oggetto</label>
+<input class="custom-input py-2 text-body-md" id="subject" name="subject" placeholder="Come possiamo aiutarti?" type="text">
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2" for="message">Messaggio</label>
+<textarea class="custom-input py-2 text-body-md resize-none" id="message" name="message" placeholder="Scrivi qui la tua richiesta..." rows="4"></textarea>
+</div>
+<button class="w-full md:w-auto bg-secondary text-on-secondary px-10 py-4 font-label-sm text-label-sm uppercase tracking-widest rounded-lg hover:opacity-90 transition-all Active:scale-95 duration-200" type="submit">
+                                Invia Messaggio
+                            </button>
+</form>
+</div>
+</div>
+<!-- Info Sidebar -->
+<div class="lg:col-span-5 space-y-12 reveal active">
+<!-- Location -->
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface border-l-4 border-primary-container pl-4">Dove Siamo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Siamo nel cuore pulsante di Parma, nel suggestivo Borgo San Biagio, a pochi passi dal Duomo e dal Battistero.
+                        </p>
+<div class="flex items-center gap-3 text-secondary">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-sm text-label-sm">Borgo San Biagio, Parma, Italia</span>
+</div>
+<div class="rounded-xl overflow-hidden h-[200px] border border-outline-variant/30">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A detailed map overview of a historic European city center, focusing on a charming narrow cobblestone alleyway in Parma, Italy. The lighting is warm and golden during sunset, highlighting the textures of ancient stone walls and terracotta roofs. The aesthetic is sophisticated, blending historical Italian architecture with a clean, modern mapping style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyQAiK42RXTqXKBZjPo70ONLi5bTEjnIVGTG41_c6wRy9ZikbMVywrPcJu9Qjpun6gRnJFTCSKgAn_dUhyDK3GAcIYQmgMHVu5-pwRiElaM9PMciFuO9_wkal9wYbPWOnJsUbL3oceX_1Rbf6tI-D4O_xqgUpUALXenjeqOPGML3NZ2n8KbX-zMk-PfJ0Dy5Hkt0B901Lm1QdZXsY6GQE6IOtnKLxVOFUwNxVL-IerRCXst4zYRUuT1LSkIN7IKUF1hFmtL52i9kxE">
+</div>
+</div>
+<!-- Channels -->
+<div class="space-y-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Canali Diretti</h3>
+<a class="flex items-center p-4 bg-[#25D366]/10 rounded-xl hover:bg-[#25D366]/20 transition-all group" href="https://wa.me/39000000000">
+<div class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center mr-4">
+<span class="material-symbols-outlined" data-weight="fill">chat</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">WhatsApp</p>
+<p class="text-body-md font-bold text-[#128C7E]">Parla con noi ora</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-[#25D366] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="flex items-center p-4 bg-primary-container/10 rounded-xl hover:bg-primary-container/20 transition-all group" href="#">
+<div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Prenotazioni</p>
+<p class="text-body-md font-bold text-primary">Verifica Disponibilità</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Socials -->
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded-full text-on-surface-variant hover:bg-secondary hover:text-white hover:border-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded-full text-on-surface-variant hover:bg-secondary hover:text-white hover:border-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-center gap-8 bg-surface-container-lowest border-t border-outline-variant/20" id="contatti"><div class="flex flex-col gap-2"><h3 class="text-headline-md font-headline-md text-primary tracking-widest uppercase">Appartamento San Giovanni</h3><div class="flex flex-col gap-1"><p class="text-on-surface-variant text-body-md font-body-md">Borgo San Biagio 7, 43121 Parma (PR)</p><a class="text-primary hover:text-secondary transition-colors text-body-md font-body-md underline" href="mailto:agriturismocasaviole@alice.it">agriturismocasaviole@alice.it</a></div></div><div class="flex gap-8"><a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Privacy Policy</a><a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Cookies</a></div><p class="text-on-surface-variant text-body-md font-body-md"> 2026 San Giovanni Parma Apartment. All rights reserved.</p></footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden bg-white/90 dark:bg-inverse-surface/90 backdrop-blur-lg rounded-t-full shadow-[0px_-12px_24px_rgba(93,64,55,0.08)]">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container transition-all Active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container transition-all Active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span class="font-label-sm text-label-sm">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container transition-all Active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container transition-all Active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Mappa</span>
+</a>
+</nav>
+<!-- FAB WhatsApp -->
+<a class="fixed bottom-24 right-6 md:bottom-10 md:right-10 bg-[#25D366] text-white flex items-center gap-3 px-6 py-4 rounded-full shadow-[0px_12px_24px_rgba(93,64,55,0.08)] z-40 hover:scale-105 transition-transform duration-300" href="https://wa.me/39000000000">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">chat</span>
+<span class="font-label-sm text-label-sm font-bold">Parla con noi</span>
+</a>
+<script>
+        // Scroll Reveal Interaction
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        window.addEventListener("load", reveal);
+
+        // Form Submission micro-interaction
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Invio in corso...';
+            btn.classList.add('opacity-50');
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Messaggio Inviato!';
+                btn.classList.remove('bg-secondary');
+                btn.classList.add('bg-primary');
+                e.target.reset();
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-primary', 'opacity-50');
+                    btn.classList.add('bg-secondary');
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+
+
+
+
+</body></html>
