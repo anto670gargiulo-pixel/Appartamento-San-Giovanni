@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        outDir: 'docs',
         main: resolve(__dirname, 'index.html'),
         dintorni: resolve(__dirname, 'dintorni.html'),
         contatti: resolve(__dirname, 'contatti.html'),
