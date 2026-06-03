@@ -4,9 +4,9 @@ import { resolve } from 'path';
 export default defineConfig({
   base: '/Appartamento-San-Giovanni/',
   build: {
+    outDir: 'docs',
     rollupOptions: {
       input: {
-        outDir: 'docs',
         main: resolve(__dirname, 'index.html'),
         dintorni: resolve(__dirname, 'dintorni.html'),
         contatti: resolve(__dirname, 'contatti.html'),
