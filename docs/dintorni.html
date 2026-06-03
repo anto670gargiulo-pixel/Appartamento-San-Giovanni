@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="it">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>I Dintorni di Parma | Appartamento San Giovanni</title>
   <meta name="description" content="Esplora i monumenti storici, il Duomo, il Teatro Regio e i sapori autentici di Parma. Consigli e itinerari gastronomici dall'Appartamento San Giovanni.">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://parma-landing.it/dintorni.html">
@@ -20,267 +21,172 @@
   <meta property="twitter:description" content="Esplora i monumenti storici, il Duomo, il Teatro Regio e i sapori autentici di Parma. Consigli dall'Appartamento San Giovanni.">
   <meta property="twitter:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuDeP9ixOQ-aA0S9GZPEcVAf48ZZMrDrSpIpoClTr-8o4MpBG1H3jUfnuLa_M_faa4GKDH8GPrQNMDtAJNXk-0HuGp8xgQl2iTZZjQOslC08cZtMEO8HU5BFxQLXCy9RjOO753Uz7dSqWW3hwaevHZMQHsO4xRdpE_umerojpaN1ao7q5X4y6waSLgqhaa6ixoqYOB9RAC304n3CNmzRhteWJnhjShiTpOW8zDAat4XnaaxRFWqSS8UzCdSSctqRlqUpzzvonD9Fa7eb">
 
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      font-family: 'Outfit', sans-serif;
-    }
-    
-    /* Premium Typography Hierarchy */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Lora', serif;
-      letter-spacing: -0.5px;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      margin-bottom: 1.5rem;
-      margin-top: 0;
-    }
-    
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 3.5rem;
-      }
-    }
-    
-    h2 {
-      font-size: 1.875rem;
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.35;
-      margin-bottom: 1.25rem;
-      margin-top: 2rem;
-      color: inherit;
-      opacity: 0.95;
-    }
-    
-    @media (min-width: 768px) {
-      h2 {
-        font-size: 2.25rem;
-      }
-    }
-    
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-      margin-top: 1.5rem;
-      font-style: normal;
-    }
-    
-    @media (min-width: 768px) {
-      h3 {
-        font-size: 1.5rem;
-      }
-    }
-    
-    body {
-      line-height: 1.6;
-      letter-spacing: 0.3px;
-    }
-    
-    p {
-      margin-bottom: 1rem;
-    }
-    
-    .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in-section.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-    }
-    
-    /* Image hover effects */
-    img {
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-    
-    img:hover {
-      transform: scale(1.04);
-      filter: brightness(1.05);
-    }
-  </style>
 
-  <!-- Schema.org JSON-LD Breadcrumbs -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "L'Appartamento",
-      "item": "https://parma-landing.it/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "I Dintorni",
-      "item": "https://parma-landing.it/dintorni.html"
-    }]
-  }
-  </script>
-  <script type="module" crossorigin src="/Appartamento-San-Giovanni/assets/main-BwGOaRhE.js"></script>
-  <link rel="stylesheet" crossorigin href="/Appartamento-San-Giovanni/assets/main-ZfwVtyTg.css">
+  <style>
+    /* Utility for smooth image transitions */
+    .img-hover { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease; }
+    .img-hover:hover { transform: scale(1.03); filter: brightness(1.05); }
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
+  <script type="module" crossorigin src="/Appartamento-San-Giovanni/assets/main-CVOjrZp0.js"></script>
+  <link rel="stylesheet" crossorigin href="/Appartamento-San-Giovanni/assets/main-CJMpcVU4.css">
 </head>
-<body class="bg-background text-on-surface font-body-md">
-  <!-- TopAppBar -->
-  <header class="fixed top-0 left-0 w-full z-[100] bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20">
-    <nav class="flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-20 w-full">
-      <div class="text-lg font-bold tracking-widest text-primary dark:text-inverse-primary">Appartamento San Giovanni</div>
-      <div class="hidden md:flex gap-8">
-        <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="index.html#appartamento">L'Appartamento</a>
-        <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="index.html#servizi">Servizi</a>
-        <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="index.html#gallery">Gallery</a>
-        <a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-semibold text-label-sm font-label-sm" href="dintorni.html">I Dintorni</a>
-        <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 text-label-sm font-label-sm" href="contatti.html">Contatti</a>
-      </div>
-      <button class="md:hidden text-primary" id="mobile-menu-btn">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
+
+<body class="bg-white text-ink font-body-md selection:bg-sky-light selection:text-sky-dark overflow-x-hidden">
+  
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-6 md:px-16 h-24 bg-white/80 backdrop-blur-lg border-b border-sky-light transition-all duration-500" id="main-header">
+    <a href="index.html" class="font-serif text-xl font-semibold tracking-wide text-ink hover:text-sky-dark transition-colors">San Giovanni</a>
+    <a href="tel:+393451217920" class="md:hidden text-sky hover:text-sky-dark transition-colors" aria-label="Chiama">
+      <span class="material-symbols-outlined text-[24px]">phone</span>
+    </a>
+    <nav class="hidden md:flex gap-10 items-center">
+      <a class="text-ink-light hover:text-sky text-kicker font-sans tracking-[0.15em] uppercase transition-colors" href="index.html#appartamento">L'Appartamento</a>
+      <a class="text-ink-light hover:text-sky text-kicker font-sans tracking-[0.15em] uppercase transition-colors" href="index.html#servizi">Servizi</a>
+      <a class="text-ink-light hover:text-sky text-kicker font-sans tracking-[0.15em] uppercase transition-colors" href="index.html#gallery">Gallery</a>
+      <a class="text-sky border-b border-sky pb-1 text-kicker font-sans tracking-[0.15em] uppercase" href="dintorni.html">I Dintorni</a>
+      <a class="text-ink-light hover:text-sky text-kicker font-sans tracking-[0.15em] uppercase transition-colors" href="contatti.html">Contatti</a>
     </nav>
+    <button class="md:hidden text-sky" id="mobile-menu-btn">
+      <span class="material-symbols-outlined text-3xl">menu_open</span>
+    </button>
   </header>
 
-  <!-- Mobile menu block (Vite dynamic behavior support) -->
-  <div class="md:hidden fixed inset-y-0 left-0 w-80 z-[110] p-6 bg-surface dark:bg-inverse-surface shadow-xl -translate-x-full transition-transform duration-300" id="side-nav">
-    <div class="flex justify-between items-center mb-10">
+  <!-- Mobile Side Nav -->
+  <div class="md:hidden fixed inset-y-0 left-0 w-full max-w-sm z-[110] p-8 bg-white shadow-editorial-lg -translate-x-full transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1)" id="side-nav">
+    <div class="flex justify-between items-center mb-16">
       <div>
-        <div class="text-xl font-bold text-primary">Appartamento San Giovanni</div>
-        <p class="text-xs opacity-70">Centro Storico Parma</p>
+        <div class="font-serif text-2xl font-semibold text-ink">San Giovanni</div>
+        <p class="text-xs text-sky mt-1 tracking-[0.2em] uppercase font-medium">Parma</p>
       </div>
-      <button class="text-on-surface-variant" id="close-menu-btn">
-        <span class="material-symbols-outlined">close</span>
+      <button class="text-ink-light hover:text-ink transition-colors" id="close-menu-btn">
+        <span class="material-symbols-outlined text-3xl">close</span>
       </button>
     </div>
-    <nav class="flex flex-col gap-4">
-      <a class="flex items-center gap-4 p-4 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 transition-all text-body-lg font-body-lg" href="index.html#appartamento">
-        <span class="material-symbols-outlined">home</span> L'Appartamento
-      </a>
-      <a class="flex items-center gap-4 p-4 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 transition-all text-body-lg font-body-lg" href="index.html#servizi">
-        <span class="material-symbols-outlined">concierge</span> Servizi
-      </a>
-      <a class="flex items-center gap-4 p-4 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 transition-all text-body-lg font-body-lg" href="index.html#gallery">
-        <span class="material-symbols-outlined">grid_view</span> Gallery
-      </a>
-      <a class="flex items-center gap-4 p-4 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full text-body-lg font-body-lg" href="dintorni.html">
-        <span class="material-symbols-outlined">map</span> I Dintorni
-      </a>
-      <a class="flex items-center gap-4 p-4 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 transition-all text-body-lg font-body-lg" href="contatti.html">
-        <span class="material-symbols-outlined">mail</span> Contatti
-      </a>
+    <nav class="flex flex-col gap-6">
+      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="index.html#appartamento">L'Appartamento</a>
+      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="index.html#servizi">Servizi</a>
+      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="index.html#gallery">Gallery</a>
+      <a class="text-2xl font-serif text-sky-dark transition-all" href="dintorni.html">I Dintorni</a>
+      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="contatti.html">Contatti</a>
     </nav>
-    <a class="block w-full mt-12 bg-primary text-on-primary py-4 rounded-xl font-bold text-center" href="https://www.booking.com/hotel/it/b-amp-b-san-biagio-parma.it.html#tab-main">Prenota Ora</a>
+    <div class="mt-16 pt-8 border-t border-sky-light">
+      <a class="flex items-center gap-3 text-ink-light hover:text-sky transition-colors mb-4" href="tel:+393451217920">
+        <span class="material-symbols-outlined">call</span> +39 345 121 7920
+      </a>
+      <a class="block w-full bg-sky text-white py-5 rounded-full font-sans text-sm tracking-[0.1em] uppercase text-center hover:bg-sky-dark transition-colors shadow-lg shadow-sky/20" href="https://www.booking.com/hotel/it/b-amp-b-san-biagio-parma.it.html#tab-main">Prenota Ora</a>
+    </div>
   </div>
 
   <main>
-    <!-- Hero Section -->
-    <section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden pt-20">
-      <img alt="Soggiorno confortevole dell'Appartamento San Giovanni con divano bianco e arredi storici" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeP9ixOQ-aA0S9GZPEcVAf48ZZMrDrSpIpoClTr-8o4MpBG1H3jUfnuLa_M_faa4GKDH8GPrQNMDtAJNXk-0HuGp8xgQl2iTZZjQOslC08cZtMEO8HU5BFxQLXCy9RjOO753Uz7dSqWW3hwaevHZMQHsO4xRdpE_umerojpaN1ao7q5X4y6waSLgqhaa6ixoqYOB9RAC304n3CNmzRhteWJnhjShiTpOW8zDAat4XnaaxRFWqSS8UzCdSSctqRlqUpzzvonD9Fa7eb">
-      <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative z-10 text-center px-container-padding-mobile">
-        <h1 class="text-white mb-4 drop-shadow-lg leading-tight">Esplora Parma</h1>
-        <p class="text-base md:text-lg text-white/90 max-w-xl mx-auto leading-relaxed">Scopri il fascino senza tempo della Food Valley italiana.</p>
+    <!-- HERO SECTION (Editorial Cover) -->
+    <section class="relative h-[80vh] w-full flex flex-col justify-center items-center overflow-hidden px-6 pt-24">
+      <div class="absolute inset-0 z-0">
+        <img alt="Centro Storico di Parma" class="w-full h-full object-cover scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeP9ixOQ-aA0S9GZPEcVAf48ZZMrDrSpIpoClTr-8o4MpBG1H3jUfnuLa_M_faa4GKDH8GPrQNMDtAJNXk-0HuGp8xgQl2iTZZjQOslC08cZtMEO8HU5BFxQLXCy9RjOO753Uz7dSqWW3hwaevHZMQHsO4xRdpE_umerojpaN1ao7q5X4y6waSLgqhaa6ixoqYOB9RAC304n3CNmzRhteWJnhjShiTpOW8zDAat4XnaaxRFWqSS8UzCdSSctqRlqUpzzvonD9Fa7eb">
+        <div class="absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink/60"></div>
+      </div>
+      <div class="relative z-10 w-full max-w-editorial mx-auto text-center mt-12">
+        <span class="block text-white/90 text-sm tracking-[0.3em] uppercase mb-6 font-sans drop-shadow-md">Guida Locale</span>
+        <h1 class="text-white text-[clamp(3.5rem,7vw,6rem)] leading-[0.95] tracking-tight font-serif drop-shadow-lg mb-8">
+          Scopri Parma
+        </h1>
+        <p class="text-white/90 text-lg md:text-xl font-light max-w-xl mx-auto font-sans drop-shadow-md mb-12">
+          Arte, architettura e sapori inconfondibili a pochi passi dal tuo rifugio.
+        </p>
       </div>
     </section>
 
-    <!-- Il Cuore di Parma Section -->
-    <section class="py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-0 max-w-[1200px] mx-auto fade-in-section is-visible">
-      <div class="grid md:grid-cols-2 gap-gutter items-center">
-        <div class="space-y-6">
-          <span class="font-semibold text-xs text-secondary tracking-widest uppercase">Posizione Strategica</span>
-          <h2 class="text-on-surface">Il Cuore di Parma</h2>
-          <div class="w-12 h-0.5 bg-primary-container"></div>
-          <p class="text-body-md text-on-surface-variant leading-relaxed">
-            L'Appartamento San Giovanni si trova in una posizione privilegiata, a pochi passi dai tesori architettonici che hanno reso Parma celebre nel mondo. Uscendo dal portone, vi troverete immersi nella storia medievale e rinascimentale.
+    <!-- IL CUORE DI PARMA (Asimmetrico) -->
+    <section class="py-24 md:py-32 bg-white">
+      <div class="max-w-editorial mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-16 md:gap-24 reveal active">
+        <div class="w-full md:w-5/12 text-left order-2 md:order-1">
+          <span class="text-sky text-xs uppercase tracking-[0.2em] font-semibold block mb-6">Posizione Strategica</span>
+          <h2 class="text-heading-lg font-serif text-ink mb-8 leading-tight">Il Cuore della Storia</h2>
+          <div class="w-16 h-px bg-sky-muted mb-8"></div>
+          <p class="text-body-lg text-ink-light font-light leading-relaxed mb-8">
+            Uscendo dal portone dell'Appartamento San Giovanni, vi troverete immersi nei vicoli acciottolati e silenziosi che costellano la vera Parma medievale e rinascimentale.
           </p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary flex-shrink-0" data-icon="castle">castle</span>
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-sky text-2xl font-light mt-1">castle</span>
               <div>
-                <h3 class="text-on-surface">Duomo e Battistero</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">A soli 2 minuti a piedi. Capolavori del romanico e gotico padano.</p>
+                <h3 class="font-serif text-lg text-ink mb-1">Duomo e Battistero</h3>
+                <p class="text-sm text-ink-light font-light">Capolavori assoluti del romanico e gotico padano, a meno di 2 minuti a piedi.</p>
               </div>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary flex-shrink-0" data-icon="theater_comedy">theater_comedy</span>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-sky text-2xl font-light mt-1">theater_comedy</span>
               <div>
-                <h3 class="text-on-surface">Teatro Regio</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">Il tempio della lirica internazionale, a 500 metri di distanza.</p>
+                <h3 class="font-serif text-lg text-ink mb-1">Teatro Regio</h3>
+                <p class="text-sm text-ink-light font-light">Il tempio della lirica internazionale, dove riecheggiano le arie verdiane, a 500 metri.</p>
               </div>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary flex-shrink-0" data-icon="museum">museum</span>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-sky text-2xl font-light mt-1">museum</span>
               <div>
-                <h3 class="text-on-surface">Complesso della Pilotta</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed">Un viaggio tra arte e storia nel monumentale palazzo ducale.</p>
+                <h3 class="font-serif text-lg text-ink mb-1">Complesso della Pilotta</h3>
+                <p class="text-sm text-ink-light font-light">Un affascinante viaggio tra arte e storia nel monumentale palazzo ducale Farnese.</p>
               </div>
             </li>
           </ul>
         </div>
-        <div class="relative group">
-          <div class="absolute -inset-4 bg-tertiary-fixed/30 rounded-xl -z-10 transition-transform group-hover:scale-105"></div>
-          <img alt="Dettaglio architettonico storico del centro monumentale di Parma" class="rounded-xl shadow-lg w-full aspect-[4/3] object-cover border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8JiinDlY2Z4q4GGhyyuqHFHh2T_zEJ17q__83XUJ-uXpL2-6oBYJ9eTxnMV9YrMC6cYV4cZELiUQyXXSlEXppcoWpa8WlSKtBx2GGp9dPyZuYbAlttTWzLbo5-hNif7iCkCIIP28ifDcah2numR9oCUC4w59Qm97A0D6rFc6UZq2sE_fMQL0r87IliIcN4shUrxQO-bqpRj7iEhjviwfs14OBL56gGxUjNqLiasmt1H5yH-X5kMmOUcz5Nm55yDSsqBgVfLrgsJW2">
+        <div class="w-full md:w-7/12 relative order-1 md:order-2">
+          <div class="aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-[2rem]">
+            <img alt="Dettaglio architettonico" class="w-full h-full object-cover img-hover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8JiinDlY2Z4q4GGhyyuqHFHh2T_zEJ17q__83XUJ-uXpL2-6oBYJ9eTxnMV9YrMC6cYV4cZELiUQyXXSlEXppcoWpa8WlSKtBx2GGp9dPyZuYbAlttTWzLbo5-hNif7iCkCIIP28ifDcah2numR9oCUC4w59Qm97A0D6rFc6UZq2sE_fMQL0r87IliIcN4shUrxQO-bqpRj7iEhjviwfs14OBL56gGxUjNqLiasmt1H5yH-X5kMmOUcz5Nm55yDSsqBgVfLrgsJW2">
+          </div>
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-white-warm rounded-full blur-3xl -z-10"></div>
         </div>
       </div>
     </section>
 
-    <!-- Esperienze Gastronomiche -->
-    <section class="bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop fade-in-section is-visible">
-      <div class="px-container-padding-mobile md:px-container-padding-desktop max-w-[1200px] mx-auto">
-        <div class="text-center mb-12">
-          <span class="font-semibold text-xs text-secondary tracking-widest uppercase">Gourmet Experience</span>
-          <h2 class="text-on-surface mt-2">Sapori Autentici</h2>
+    <!-- ESPERIENZE GASTRONOMICHE -->
+    <section class="py-24 md:py-32 bg-sky-light/20 relative">
+      <div class="max-w-editorial mx-auto px-6 md:px-16 reveal">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-sky text-xs uppercase tracking-[0.2em] font-semibold block mb-6">Food Valley</span>
+          <h2 class="text-display-md font-serif text-ink mb-6">Sapori Autentici</h2>
         </div>
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 grid md:grid-cols-5 h-auto md:h-[400px]">
-          <div class="md:col-span-2 relative overflow-hidden">
-            <img alt="Piatti tipici parmigiani serviti al ristorante La Forchetta a Parma" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPUfzJ2RdQBNXpLyjEpwtHQubXsN6IETgWUkbND7d-hKGHsGerh1J4cg3Nbd68nRHp2R4fTKHFaMmWeBCLaUODSQxCEPAClemB0NfyBzfqBtcalVe8Vc5RSuFyxKdCgOdB_YEoTYUMTzw2qc1cDudfAZW3QmwaDdknW-MLbItqTxQPc_wPuocc32RHfsZiZkRmPscOt49J8dDO8QTFcqqD70o6FggD47WX6ZwaRFLtfBrh1BEuM7UGG_ht0FxHPJVhWO_YYpWP4By">
-          </div>
-          <div class="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
-            <h3 class="text-on-surface mb-4">Ristorante La Forchetta</h3>
-            <p class="text-base md:text-lg text-on-surface-variant mb-6 leading-relaxed">
-              Situato proprio dietro l'angolo, La Forchetta è un'istituzione parmigiana. Qui la tradizione della "Food Valley" incontra una creatività raffinata. Dai salumi DOP ai tortelli d'erbetta, ogni piatto racconta l'amore per questa terra.
+
+        <div class="relative w-full h-[60vh] md:h-[70vh] rounded-[2rem] overflow-hidden">
+          <img alt="Piatti tipici parmigiani" class="absolute inset-0 w-full h-full object-cover img-hover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPUfzJ2RdQBNXpLyjEpwtHQubXsN6IETgWUkbND7d-hKGHsGerh1J4cg3Nbd68nRHp2R4fTKHFaMmWeBCLaUODSQxCEPAClemB0NfyBzfqBtcalVe8Vc5RSuFyxKdCgOdB_YEoTYUMTzw2qc1cDudfAZW3QmwaDdknW-MLbItqTxQPc_wPuocc32RHfsZiZkRmPscOt49J8dDO8QTFcqqD70o6FggD47WX6ZwaRFLtfBrh1BEuM7UGG_ht0FxHPJVhWO_YYpWP4By">
+          <div class="absolute inset-0 bg-black/10"></div>
+          
+          <!-- Floating Editorial Card -->
+          <div class="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 max-w-lg bg-white/95 backdrop-blur-xl p-10 md:p-12 rounded-[1.5rem] shadow-editorial">
+            <h3 class="font-serif text-2xl text-ink mb-4">Ristorante La Forchetta</h3>
+            <div class="w-10 h-px bg-sky mb-6"></div>
+            <p class="text-sm text-ink-light font-light leading-relaxed mb-8">
+              Situato a pochissimi metri dall'appartamento, questo storico locale è una vera e propria istituzione parmigiana. Qui la profonda tradizione culinaria locale incontra una creatività contemporanea in un ambiente caldo ed elegante.
             </p>
-            <div class="flex flex-wrap gap-4 mt-auto">
-              <span class="inline-flex items-center gap-2 text-label-sm font-semibold text-primary">
-                <span class="material-symbols-outlined text-[18px]" data-icon="restaurant">restaurant</span>
-                Cucina Tipica
+            <div class="flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sky-dark bg-sky-light/50 px-4 py-2 rounded-full font-medium">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> Rinomato
               </span>
-              <span class="inline-flex items-center gap-2 text-label-sm font-semibold text-primary">
-                <span class="material-symbols-outlined text-[18px]" data-icon="wine_bar">wine_bar</span>
-                Cantina Selezionata
+              <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sky-dark bg-sky-light/50 px-4 py-2 rounded-full font-medium">
+                <span class="material-symbols-outlined text-[16px]">wine_bar</span> Enoteca
               </span>
             </div>
-            <a class="mt-8 text-secondary font-bold flex items-center gap-2 hover:translate-x-2 transition-transform duration-300" href="https://www.booking.com/hotel/it/b-amp-b-san-biagio-parma.it.html#tab-main">
-              Prenota il tuo soggiorno <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Mappa Placeholder -->
-    <section class="py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-0 max-w-[1200px] mx-auto fade-in-section is-visible">
-      <div class="flex flex-col items-center">
-        <h2 class="text-on-surface mb-8">Dove Siamo</h2>
-        <div class="w-full h-[450px] bg-surface-container rounded-3xl border border-outline-variant/50 relative overflow-hidden group">
-          <img alt="Mappa di Parma che indica la posizione dell'Appartamento San Giovanni in Borgo San Biagio" class="w-full h-full object-cover grayscale contrast-125 opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-location="Parma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0D4Ptgeyf9DRaWSonAjuIe7fBLA1r8PfilEJvQnmdJAypjwn8C-wJx1qJZK_vFRNRF60TDg3MSmxOO1Zw5jeU76WDBjOkEC_yQDerOPvmE94kJ7UPw_fm9mZWLmMQeATJAHXJ2KtO8BJgIK7UH827G-fQz1HRQre9UhTGWoSpO8K-IGUBnn5Xf1Q9KhodiIJjzZK2_yU4s5gUI8jRkcre_asW3Is7f2K2UFc9nrkqMCQLriK0Y83tUTdeh7IzQTYZkHBeMpxDMY_k">
+    <!-- MAPPA / POSIZIONE -->
+    <section class="py-24 md:py-32 bg-white reveal">
+      <div class="max-w-editorial mx-auto px-6 md:px-16 flex flex-col items-center text-center">
+        <h2 class="text-heading-lg font-serif text-ink mb-12 italic">Come raggiungerci</h2>
+        
+        <div class="w-full max-w-4xl h-[50vh] rounded-[2rem] overflow-hidden relative shadow-editorial-sm">
+          <img alt="Mappa di Parma" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0D4Ptgeyf9DRaWSonAjuIe7fBLA1r8PfilEJvQnmdJAypjwn8C-wJx1qJZK_vFRNRF60TDg3MSmxOO1Zw5jeU76WDBjOkEC_yQDerOPvmE94kJ7UPw_fm9mZWLmMQeATJAHXJ2KtO8BJgIK7UH827G-fQz1HRQre9UhTGWoSpO8K-IGUBnn5Xf1Q9KhodiIJjzZK2_yU4s5gUI8jRkcre_asW3Is7f2K2UFc9nrkqMCQLriK0Y83tUTdeh7IzQTYZkHBeMpxDMY_k">
           <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-secondary/20 flex flex-col items-center">
-              <span class="material-symbols-outlined text-secondary text-4xl mb-2" data-icon="location_on" data-weight="fill">location_on</span>
-              <p class="font-bold text-secondary">San Giovanni Parma</p>
-              <p class="text-label-sm text-outline">Via San Giovanni, 43121 Parma</p>
+            <div class="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl flex flex-col items-center">
+              <span class="material-symbols-outlined text-sky text-4xl mb-4">location_on</span>
+              <p class="font-serif text-xl text-ink mb-1">Borgo San Biagio 7</p>
+              <p class="text-sm font-sans tracking-[0.15em] uppercase text-ink-light">Parma Centro Storico</p>
             </div>
           </div>
         </div>
@@ -288,93 +194,72 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="w-full py-section-gap-mobile md:py-section-gap-desktop px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-center gap-8 bg-surface-container-lowest border-t border-outline-variant/20" id="contatti">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full max-w-[1200px] mx-auto gap-8">
-      <div class="flex flex-col gap-4">
-        <div class="text-lg font-bold text-primary tracking-wide">Appartamento San Giovanni</div>
-        <div class="text-on-surface-variant text-body-md font-body-md space-y-1">
-          <p>Borgo San Biagio 7, 43121 Parma (PR)</p>
-          <p><a class="hover:text-secondary transition-colors" href="mailto:agriturismocasaviole@alice.it">agriturismocasaviole@alice.it</a></p>
+  <!-- FOOTER -->
+  <footer class="bg-white pt-20 pb-10 px-6 md:px-16" id="contatti">
+    <div class="max-w-editorial mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 border-b border-sky-light pb-12 mb-8">
+      <div>
+        <div class="font-serif text-2xl font-semibold text-ink mb-2">San Giovanni</div>
+        <p class="text-ink-light text-sm font-light">Boutique Stay in Parma</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+        <div class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-[0.15em] text-sky font-semibold mb-2">Indirizzo</span>
+          <p class="text-ink-light text-sm font-light">Borgo San Biagio 7<br>43121 Parma (PR)</p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-[0.15em] text-sky font-semibold mb-2">Contatti</span>
+          <a class="text-ink-light hover:text-sky text-sm font-light transition-colors" href="tel:+393451217920">+39 345 121 7920</a>
+          <a class="text-ink-light hover:text-sky text-sm font-light transition-colors" href="mailto:agriturismocasaviole@alice.it">agriturismocasaviole@alice.it</a>
         </div>
       </div>
-      <div class="flex flex-col md:items-end gap-4">
-        <div class="flex gap-8">
-          <a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Privacy Policy</a>
-          <a class="text-on-surface-variant hover:text-secondary transition-colors text-body-md font-body-md" href="#">Cookies</a>
-        </div>
-        <p class="text-on-surface-variant text-body-md font-body-md">© 2026 San Giovanni Parma Apartment. All rights reserved.</p>
+    </div>
+    <div class="max-w-editorial mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-ink-faint font-light">
+      <p>© 2026 San Giovanni Parma. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a class="hover:text-ink transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-ink transition-colors" href="#">Cookie Policy</a>
       </div>
     </div>
   </footer>
 
-  <!-- BottomNavBar (Mobile only) -->
-  <nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden bg-white/90 dark:bg-inverse-surface/90 backdrop-blur-lg shadow-[0px_-12px_24px_rgba(93,64,55,0.08)] rounded-t-full">
-    <a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="index.html">
-      <span class="material-symbols-outlined" data-icon="home">home</span>
-      <span class="text-label-sm font-label-sm">Home</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="index.html#gallery">
-      <span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
-      <span class="text-label-sm font-label-sm">Gallery</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant font-body-md py-2 px-4 rounded-full transition-all" href="https://wa.me/393451217920">
-      <span class="material-symbols-outlined" data-icon="chat">chat</span>
-      <span class="text-label-sm font-label-sm">WhatsApp</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-bold py-2 px-4 rounded-full transition-all bg-surface-container-highest" href="#dintorni">
-      <span class="material-symbols-outlined" data-icon="map" data-weight="fill">map</span>
-      <span class="text-label-sm font-label-sm">Mappa</span>
-    </a>
-  </nav>
-
   <!-- WhatsApp FAB -->
-  <a class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-[0px_12px_24px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform active:scale-95 flex items-center gap-3" href="https://wa.me/393451217920">
-    <span class="material-symbols-outlined" data-icon="chat">chat</span>
-    <span class="hidden md:inline font-bold">Parla con noi</span>
+  <a class="fixed bottom-8 right-8 z-[120] bg-whatsapp text-white w-14 h-14 flex items-center justify-center rounded-full shadow-editorial hover:scale-110 transition-transform duration-300" href="https://wa.me/393451217920" aria-label="Chatta con noi su WhatsApp">
+    <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">chat</span>
   </a>
 
   <script>
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-sm', 'py-4');
+        header.classList.remove('h-24');
+      } else {
+        header.classList.remove('shadow-sm', 'py-4');
+        header.classList.add('h-24');
+      }
+    });
 
+    // Reveal animations
+    const observerOptions = { rootMargin: '0px 0px -100px 0px', threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Sticky Header transparency logic
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-sm');
-        } else {
-            header.classList.remove('shadow-sm');
-        }
-    });
-
+    // Mobile Menu
     const sideNav = document.getElementById('side-nav');
     const openBtn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
 
-    openBtn.addEventListener('click', () => {
-        sideNav.classList.remove('-translate-x-full');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        sideNav.classList.add('-translate-x-full');
-    });
+    openBtn.addEventListener('click', () => sideNav.classList.remove('-translate-x-full'));
+    closeBtn.addEventListener('click', () => sideNav.classList.add('-translate-x-full'));
   </script>
 </body>
 </html>
