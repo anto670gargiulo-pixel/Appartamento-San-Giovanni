@@ -1,20 +1,82 @@
+//GSAP ANIMATIONS
+import gsap from 'gsap';
+gsap.registerPlugin(ScrollTrigger);
+//Scrolltrigger
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+//TEST
+window.addEventListener("DOMContentLoaded", () => {
+
+    console.log("MAIN OK");
+
+    const hero = (document.querySelector(".hero-title"));
+    console.log(hero);
+
+
+    gsap.from(hero, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8
+    });
+});
+
+
 // Tailwind CSS entry point
 import './input.css';
 
 // Mobile menu functionality
-const sideNav = document.getElementById('side-nav');
-const openBtn = document.getElementById('mobile-menu-btn');
-const closeBtn = document.getElementById('close-menu-btn');
+window.addEventListener("DOMContentLoaded", () => {
+    console.log("MAIN OK");
 
-if (openBtn && closeBtn && sideNav) {
-    openBtn.addEventListener('click', () => {
-        sideNav.classList.remove('-translate-x-full');
-    });
+    const btn = document.querySelector("#mobile-menu-btn");
+    const menu = document.querySelector("#mobile-menu");
 
-    closeBtn.addEventListener('click', () => {
-        sideNav.classList.add('-translate-x-full');
+    if (!btn || !menu) return;
+
+    let open = false;
+
+    btn.addEventListener("click", () => {
+        open = !open;
+
+        if (open) {
+            gsap.to(menu, {
+                opacity: 1,
+                y: 10,
+                pointerEvents: "auto",
+                duration: 0.4,
+                ease: "power3.out"
+            });
+        } else {
+            gsap.to(menu, {
+                opacity: 0,
+                y: -10,
+                pointerEvents: "none",
+                duration: 0.25
+            });
+        }
     });
-}
+});
+
+//mobile menu landing
+document.querySelectorAll('.js-scroll').forEach((link) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+
+        gsap.to(window, {
+            duration: 0.9,
+            scrollTo: {
+                y: target,
+                offsetY: 80 // utile se hai header fisso
+            },
+            ease: "power3.inOut"
+        });
+    });
+});
+
+
 
 // Reveal animation on scroll
 function reveal() {
@@ -36,14 +98,25 @@ reveal();
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        if (sideNav) {
-            sideNav.classList.add('-translate-x-full');
+
+        // Risoluzione errore di scope: selezioniamo il menu mobile attivo
+        const menu = document.querySelector("#mobile-menu");
+        if (menu) {
+            // Chiude il menu coerentemente tramite GSAP senza rompere i flussi
+            gsap.to(menu, {
+                opacity: 0,
+                y: -10,
+                pointerEvents: "none",
+                duration: 0.25
+            });
         }
+
         const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
+        if (target) {
             target.scrollIntoView({
                 behavior: 'smooth'
             });
         }
     });
 });
+
