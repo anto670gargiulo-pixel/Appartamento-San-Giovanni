@@ -1,32 +1,23 @@
 //GSAP ANIMATIONS
 import gsap from 'gsap';
-gsap.registerPlugin(ScrollTrigger);
-//Scrolltrigger
 import ScrollTrigger from 'gsap/ScrollTrigger';
-
-//TEST
-window.addEventListener("DOMContentLoaded", () => {
-
-    console.log("MAIN OK");
-
-    const hero = (document.querySelector(".hero-title"));
-    console.log(hero);
-
-
-    gsap.from(hero, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8
-    });
-});
-
+gsap.registerPlugin(ScrollTrigger);
 
 // Tailwind CSS entry point
 import './input.css';
 
-// Mobile menu functionality
+// TEST & Mobile menu functionality
 window.addEventListener("DOMContentLoaded", () => {
     console.log("MAIN OK");
+
+    const hero = document.querySelector(".hero-title");
+    if (hero) {
+        gsap.from(hero, {
+            opacity: 0,
+            y: 30,
+            duration: 0.8
+        });
+    }
 
     const btn = document.querySelector("#mobile-menu-btn");
     const menu = document.querySelector("#mobile-menu");
@@ -35,25 +26,52 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let open = false;
 
-    btn.addEventListener("click", () => {
-        open = !open;
+    const openMenu = () => {
+        open = true;
+        gsap.to(menu, {
+            opacity: 1,
+            y: 0,
+            pointerEvents: "auto",
+            duration: 0.55,
+            ease: "power3.out"
+        });
+    };
 
+    const closeMenu = () => {
+        open = false;
+        gsap.to(menu, {
+            opacity: 0,
+            y: -15,
+            pointerEvents: "none",
+            duration: 0.35,
+            ease: "power2.inOut"
+        });
+    };
+
+    btn.addEventListener("click", () => {
         if (open) {
-            gsap.to(menu, {
-                opacity: 1,
-                y: 10,
-                pointerEvents: "auto",
-                duration: 0.4,
-                ease: "power3.out"
-            });
+            closeMenu();
         } else {
-            gsap.to(menu, {
-                opacity: 0,
-                y: -10,
-                pointerEvents: "none",
-                duration: 0.25
-            });
+            openMenu();
         }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (open) {
+                closeMenu();
+            }
+
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
 
@@ -76,8 +94,6 @@ document.querySelectorAll('.js-scroll').forEach((link) => {
     });
 });
 
-
-
 // Reveal animation on scroll
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
@@ -94,29 +110,4 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 reveal();
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Risoluzione errore di scope: selezioniamo il menu mobile attivo
-        const menu = document.querySelector("#mobile-menu");
-        if (menu) {
-            // Chiude il menu coerentemente tramite GSAP senza rompere i flussi
-            gsap.to(menu, {
-                opacity: 0,
-                y: -10,
-                pointerEvents: "none",
-                duration: 0.25
-            });
-        }
-
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 

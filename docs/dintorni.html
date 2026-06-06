@@ -25,7 +25,7 @@
     content="Esplora i monumenti storici, il Duomo, il Teatro Regio e i sapori autentici di Parma. Consigli dall'Appartamento San Giovanni.">
   <meta property="twitter:image"
     content="https://lh3.googleusercontent.com/aida-public/AB6AXuDeP9ixOQ-aA0S9GZPEcVAf48ZZMrDrSpIpoClTr-8o4MpBG1H3jUfnuLa_M_faa4GKDH8GPrQNMDtAJNXk-0HuGp8xgQl2iTZZjQOslC08cZtMEO8HU5BFxQLXCy9RjOO753Uz7dSqWW3hwaevHZMQHsO4xRdpE_umerojpaN1ao7q5X4y6waSLgqhaa6ixoqYOB9RAC304n3CNmzRhteWJnhjShiTpOW8zDAat4XnaaxRFWqSS8UzCdSSctqRlqUpzzvonD9Fa7eb">
-
+
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -44,8 +44,8 @@
       filter: brightness(1.05);
     }
   </style>
-  <script type="module" crossorigin src="/Appartamento-San-Giovanni/assets/main-DIP9vPIO.js"></script>
-  <link rel="stylesheet" crossorigin href="/Appartamento-San-Giovanni/assets/main-DRSm1aKw.css">
+  <script type="module" crossorigin src="/Appartamento-San-Giovanni/assets/main-7ehBfBD0.js"></script>
+  <link rel="stylesheet" crossorigin href="/Appartamento-San-Giovanni/assets/main-yze88unS.css">
 </head>
 
 <body class="bg-white text-ink font-body-md selection:bg-sky-light selection:text-sky-dark overflow-x-hidden">
@@ -76,14 +76,14 @@
       <span class="material-symbols-outlined text-3xl">menu_open</span>
     </button>
     <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="fixed left-1/2 top-24 -translate-x-1/2 w-[90%] max-w-md bg-white rounded-2xl shadow-2xl 
-         opacity-0 pointer-events-none z-[200]">
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white/80 backdrop-blur-lg border-b border-sky-light shadow-lg 
+         opacity-0 pointer-events-none z-[-1]">
 
       <div class="flex flex-col gap-6 p-8 text-center font-sans tracking-wide uppercase text-sm">
 
-        <a href="#appartamento">L'Appartamento</a>
-        <a href="#servizi">Servizi</a>
-        <a href="#gallery">Gallery</a>
+        <a href="index.html#appartamento">L'Appartamento</a>
+        <a href="index.html#servizi">Servizi</a>
+        <a href="index.html#gallery">Gallery</a>
         <a href="dintorni.html">I Dintorni</a>
         <a href="contatti.html">Contatti</a>
 
@@ -95,35 +95,7 @@
     </div>
   </header>
 
-  <!-- Mobile Side Nav -->
-  <div
-    class="md:hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-sm z-[110] p-8 bg-white shadow-editorial-lg rounded-[2rem] flex flex-col justify-center opacity-0 pointer-events-none"
-    id="side-nav" style="height: 0; overflow: hidden;">
-    <div class="flex justify-between items-center mb-16">
-      <div>
-        <div class="font-serif text-2xl font-semibold text-ink">San Giovanni</div>
-        <p class="text-xs text-sky mt-1 tracking-[0.2em] uppercase font-medium">Parma</p>
-      </div>
-      <button class="text-ink-light hover:text-ink transition-colors" id="close-menu-btn">
-        <span class="material-symbols-outlined text-3xl">close</span>
-      </button>
-    </div>
-    <nav class="flex flex-col gap-6">
-      <a class="text-2xl font-serif text-ink hover:text-sky transition-all"
-        href="index.html#appartamento">L'Appartamento</a>
-      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="index.html#servizi">Servizi</a>
-      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="index.html#gallery">Gallery</a>
-      <a class="text-2xl font-serif text-sky-dark transition-all" href="dintorni.html">I Dintorni</a>
-      <a class="text-2xl font-serif text-ink hover:text-sky transition-all" href="contatti.html">Contatti</a>
-    </nav>
-    <div class="mt-16 pt-8 border-t border-sky-light">
-      <a class="flex items-center gap-3 text-ink-light hover:text-sky transition-colors mb-4" href="tel:+393451217920">
-        <span class="material-symbols-outlined">call</span> +39 345 121 7920
-      </a>
-      <a class="block w-full bg-sky text-white py-5 rounded-full font-sans text-sm tracking-[0.1em] uppercase text-center hover:bg-sky-dark transition-colors shadow-lg shadow-sky/20"
-        href="https://www.booking.com/hotel/it/b-amp-b-san-biagio-parma.it.html#tab-main">Prenota Ora</a>
-    </div>
-  </div>
+
 
   <main>
     <!-- HERO SECTION (Editorial Cover) -->
