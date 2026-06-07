@@ -324,6 +324,193 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     );
   });
+
+  // ── Testimonial Slider logic ──────────────────────────────
+  const testimonialSection = document.querySelector('#testimonials-section');
+  if (testimonialSection) {
+    const slides = testimonialSection.querySelectorAll('.testimonial-slide');
+    const prevBtn = testimonialSection.querySelector('#prev-testimonial');
+    const nextBtn = testimonialSection.querySelector('#next-testimonial');
+    let currentIdx = 0;
+    let isTransitioning = false;
+
+    const showTestimonial = (nextIdx, direction) => {
+      if (isTransitioning || nextIdx === currentIdx) return;
+      isTransitioning = true;
+
+      const currentSlide = slides[currentIdx];
+      const nextSlide = slides[nextIdx];
+
+      const xOffset = direction === 'next' ? 60 : -60;
+
+      // Animazione uscita slide corrente
+      gsap.to(currentSlide, {
+        opacity: 0,
+        x: -xOffset,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          currentSlide.classList.remove('opacity-100', 'z-10');
+          currentSlide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+          gsap.set(currentSlide, { x: 0 }); // reset
+        }
+      });
+
+      // Prepariamo la slide successiva
+      nextSlide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+      nextSlide.classList.add('opacity-100', 'z-10');
+      gsap.set(nextSlide, { x: xOffset, opacity: 0 });
+
+      // Animazione entrata slide successiva
+      gsap.to(nextSlide, {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        delay: 0.1,
+        onComplete: () => {
+          currentIdx = nextIdx;
+          isTransitioning = false;
+        }
+      });
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      const nextIdx = (currentIdx - 1 + slides.length) % slides.length;
+      showTestimonial(nextIdx, 'prev');
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const nextIdx = (currentIdx + 1) % slides.length;
+      showTestimonial(nextIdx, 'next');
+    });
+  }
+
+  // ── Lightbox Gallery logic ────────────────────────────────
+  const gallerySection = document.querySelector('#gallery');
+  const lightbox = document.querySelector('#gallery-lightbox');
+  if (gallerySection && lightbox) {
+    const images = Array.from(gallerySection.querySelectorAll('img.img-hover'));
+    const lightboxImg = lightbox.querySelector('#lightbox-img');
+    const lightboxCounter = lightbox.querySelector('#lightbox-counter');
+    const lightboxCaption = lightbox.querySelector('#lightbox-caption');
+    const closeBtn = lightbox.querySelector('#close-lightbox');
+    const prevBtn = lightbox.querySelector('#prev-lightbox');
+    const nextBtn = lightbox.querySelector('#next-lightbox');
+    let activeImgIdx = 0;
+
+    const updateLightboxImage = (index) => {
+      if (index < 0 || index >= images.length) return;
+      activeImgIdx = index;
+      const targetImg = images[index];
+
+      // Anima fuori l'immagine corrente
+      gsap.to(lightboxImg, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.25,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          lightboxImg.src = targetImg.src;
+          lightboxImg.alt = targetImg.alt;
+          lightboxCounter.textContent = `${activeImgIdx + 1} / ${images.length}`;
+          lightboxCaption.textContent = targetImg.alt || '';
+
+          // Anima dentro la nuova immagine
+          gsap.to(lightboxImg, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out'
+          });
+        }
+      });
+    };
+
+    // Apri lightbox
+    images.forEach((img, idx) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        activeImgIdx = idx;
+        lightbox.classList.remove('pointer-events-none');
+        
+        // Visualizza lightbox
+        gsap.to(lightbox, {
+          opacity: 1,
+          duration: 0.4,
+          ease: 'power2.out',
+          onComplete: () => {
+            // Blocca scroll body
+            document.body.style.overflow = 'hidden';
+          }
+        });
+
+        // Carica immagine direttamente senza animazione per il primo render
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCounter.textContent = `${activeImgIdx + 1} / ${images.length}`;
+        lightboxCaption.textContent = img.alt || '';
+        
+        gsap.set(lightboxImg, { opacity: 0, scale: 0.95 });
+        gsap.to(lightboxImg, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+          delay: 0.1
+        });
+      });
+    });
+
+    // Chiudi lightbox
+    const closeLightbox = () => {
+      document.body.style.overflow = '';
+      gsap.to(lightbox, {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          lightbox.classList.add('pointer-events-none');
+          lightboxImg.src = '';
+        }
+      });
+    };
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('flex-grow') || (e.target.closest('.flex-grow') && !e.target.closest('#lightbox-img') && !e.target.closest('button'))) {
+        closeLightbox();
+      }
+    });
+
+    // Naviga precedente/successiva
+    const showPrev = () => {
+      const newIdx = (activeImgIdx - 1 + images.length) % images.length;
+      updateLightboxImage(newIdx);
+    };
+
+    const showNext = () => {
+      const newIdx = (activeImgIdx + 1) % images.length;
+      updateLightboxImage(newIdx);
+    };
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+
+    // Tastiera
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('pointer-events-none')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+  }
 });
 
 // ─────────────────────────────────────────────────────────────
