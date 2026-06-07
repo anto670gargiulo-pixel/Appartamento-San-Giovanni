@@ -133,30 +133,24 @@
    ANIMATIONS
    ─────────────────────────────────────────────── */
 
-/* Scroll reveal */
+/* Scroll reveal — gestito da GSAP ScrollTrigger in main.js.
+   Stato iniziale impostato via gsap.fromTo, quindi opacity:0 e transform
+   vengono gestiti inline da GSAP. Il CSS non interferisce. */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  /* stato neutro: GSAP sovrascrive inline */
 }
 
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  /* legacy — GSAP gestisce questo stato */
 }
 
-/* Fade-in section (dintorni) */
+/* Fade-in section (dintorni) — gestito da GSAP ScrollTrigger */
 .fade-in-section {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  /* stato neutro: GSAP sovrascrive inline */
 }
 
 .fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  /* legacy — GSAP gestisce questo stato */
 }
 
 /* Hero card entrance */
@@ -235,4 +229,140 @@
 /* Smooth link transitions */
 .link-transition {
   transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ───────────────────────────────────────────────
+   MENU OVERLAY BLUR
+   ─────────────────────────────────────────────── */
+
+#menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* sotto header (z-100) ma sopra main */
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  display: none; /* GSAP usa display:block quando apre */
+  transition: none; /* GSAP gestisce tutto */
+}
+
+/* ───────────────────────────────────────────────
+   MOBILE MENU — tendina fluida
+   ─────────────────────────────────────────────── */
+
+/* Il menu è absolute top:100% dentro header — NON modificare struttura */
+#mobile-menu {
+  /* GSAP gestisce opacity/scaleY/pointerEvents inline.
+     Forziamo display:block sempre per evitare layout jump */
+  display: block !important;
+  /* Necessario per scaleY tendina */
+  transform-origin: top center;
+  /* Bordo visivo continuo con header */
+  border-top: 1px solid rgba(91, 164, 201, 0.15);
+}
+
+/* Link del menu: stili UX premium */
+#mobile-menu a {
+  color: #2a2a28;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.35rem 0;
+  transition: color 0.25s ease;
+  text-decoration: none;
+}
+
+#mobile-menu a:hover {
+  color: #5ba4c9;
+}
+
+#mobile-menu a.text-sky {
+  color: #5ba4c9;
+  font-weight: 600;
+}
+
+/* ───────────────────────────────────────────────
+   HEADER MOBILE ICON LAYOUT
+   ─────────────────────────────────────────────── */
+
+/* Su mobile: phone a sinistra, hamburger CENTER assoluto, logo a destra */
+@media (max-width: 767px) {
+  /* Flex con start, hamburger è absolute quindi fuori dal flow */
+  #main-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Phone icon: PRIMO a sinistra */
+  #main-header > a[href^="tel"] {
+    order: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Logo: va a DESTRA con margin-left auto */
+  #main-header > a:first-child {
+    order: 1;
+    margin-left: auto;
+  }
+
+  /* Nav desktop: nascosta su mobile */
+  #main-header > nav {
+    order: 2;
+  }
+
+  /* Hamburger: absolute center — fuori dal flow normale */
+  #mobile-menu-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10;
+    order: 3;
+  }
+
+  /* Rimuove pseudo-element precedente */
+  #main-header::after {
+    margin-left: auto;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   WHATSAPP FAB — icona SVG
+   ─────────────────────────────────────────────── */
+
+.whatsapp-cta .wa-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* ───────────────────────────────────────────────
+   MAIN CONTENT — pointer-events quando menu aperto
+   ─────────────────────────────────────────────── */
+
+body.menu-open main {
+  pointer-events: none;
+}
+
+/* ───────────────────────────────────────────────
+   GSAP TEXT REVEAL — elementi animabili
+   ─────────────────────────────────────────────── */
+
+/* Evita FOUC (Flash Of Unstyled Content) su elementi
+   che GSAP animerà da opacity:0 */
+.gsap-will-animate {
+  will-change: opacity, transform;
 }

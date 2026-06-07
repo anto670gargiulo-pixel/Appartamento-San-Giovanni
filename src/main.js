@@ -1,4 +1,6 @@
-//GSAP ANIMATIONS
+// ─────────────────────────────────────────────────────────────
+// GSAP + ScrollTrigger
+// ─────────────────────────────────────────────────────────────
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -6,108 +8,330 @@ gsap.registerPlugin(ScrollTrigger);
 // Tailwind CSS entry point
 import './input.css';
 
-// TEST & Mobile menu functionality
-window.addEventListener("DOMContentLoaded", () => {
-    console.log("MAIN OK");
+// ─────────────────────────────────────────────────────────────
+// DOM READY
+// ─────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('MAIN OK');
 
-    const hero = document.querySelector(".hero-title");
-    if (hero) {
-        gsap.from(hero, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8
-        });
+  // ── Hero entrance ──────────────────────────────────────────
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSub = document.querySelector('.hero-sub');
+
+  if (heroTitle) {
+    gsap.from(heroTitle, {
+      opacity: 0,
+      y: 40,
+      duration: 1.0,
+      ease: 'power3.out',
+      delay: 0.1,
+    });
+  }
+  if (heroSub) {
+    gsap.to(heroSub, {
+      opacity: 1,
+      y: 0,
+      duration: 1.0,
+      ease: 'power2.out',
+      delay: 0.45,
+    });
+  }
+
+  // ── Mobile menu setup ──────────────────────────────────────
+  const btn = document.querySelector('#mobile-menu-btn');
+  const menu = document.querySelector('#mobile-menu');
+  const overlay = document.querySelector('#menu-overlay');
+  const menuIcon = btn ? btn.querySelector('.material-symbols-outlined') : null;
+
+  if (!btn || !menu) return;
+
+  // Raccoglie i link dentro il menu
+  const menuLinks = menu.querySelectorAll('a');
+
+  // Stato iniziale dei link (fuori schermo in alto, invisibili)
+  gsap.set(menuLinks, { opacity: 0, y: 15 });
+
+  // Stato iniziale menu
+  gsap.set(menu, {
+    opacity: 0,
+    scaleY: 0.96,
+    transformOrigin: 'top center',
+    pointerEvents: 'none',
+    display: 'block',
+  });
+
+  let isOpen = false;
+  let menuTl = null; // timeline corrente
+
+  // ── Open ───────────────────────────────────────────────────
+  const openMenu = () => {
+    if (isOpen) return;
+    isOpen = true;
+
+    // Blocca scroll + pointer-events su main
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('menu-open');
+
+    // Aggiorna icona
+    if (menuIcon) menuIcon.textContent = 'close';
+
+    // Attiva overlay
+    if (overlay) {
+      gsap.to(overlay, {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+        pointerEvents: 'auto',
+        display: 'block',
+      });
     }
 
-    const btn = document.querySelector("#mobile-menu-btn");
-    const menu = document.querySelector("#mobile-menu");
+    // Animazione tendina
+    if (menuTl) menuTl.kill();
+    menuTl = gsap.timeline();
 
-    if (!btn || !menu) return;
+    menuTl
+      .to(menu, {
+        opacity: 1,
+        scaleY: 1,
+        pointerEvents: 'auto',
+        duration: 1.2,
+        ease: 'expo.out',
+      })
+      .to(
+        menuLinks,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: 0.09,
+        },
+        '-=0.75' // sovrappone all'apertura del container
+      );
+  };
 
-    let open = false;
+  // ── Close ──────────────────────────────────────────────────
+  const closeMenu = () => {
+    if (!isOpen) return;
+    isOpen = false;
 
-    const openMenu = () => {
-        open = true;
-        gsap.to(menu, {
+    // Ripristina scroll + pointer-events su main
+    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
+
+    // Aggiorna icona
+    if (menuIcon) menuIcon.textContent = 'menu_open';
+
+    // Disattiva overlay
+    if (overlay) {
+      gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.inOut',
+        pointerEvents: 'none',
+      });
+    }
+
+    // Reverse: link escono prima, poi container si chiude
+    if (menuTl) menuTl.kill();
+    menuTl = gsap.timeline();
+
+    menuTl
+      .to(menuLinks, {
+        opacity: 0,
+        y: 15,
+        duration: 0.4,
+        ease: 'power2.inOut',
+        stagger: { each: 0.06, from: 'end' },
+      })
+      .to(
+        menu,
+        {
+          opacity: 0,
+          scaleY: 0.96,
+          pointerEvents: 'none',
+          duration: 0.55,
+          ease: 'power3.inOut',
+        },
+        '-=0.15'
+      );
+  };
+
+  // ── Event listeners ────────────────────────────────────────
+  btn.addEventListener('click', () => (isOpen ? closeMenu() : openMenu()));
+
+  // Click overlay chiude menu
+  if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+  }
+
+  // Click link del menu → chiudi menu
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // ── Smooth scroll per anchor links (index) ─────────────────
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+    });
+  });
+});
+
+// ─────────────────────────────────────────────────────────────
+// SMOOTH SCROLL — js-scroll class
+// ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.js-scroll').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+
+    gsap.to(window, {
+      duration: 0.9,
+      scrollTo: { y: target, offsetY: 80 },
+      ease: 'power3.inOut',
+    });
+  });
+});
+
+// ─────────────────────────────────────────────────────────────
+// SCROLL REVEAL — GSAP ScrollTrigger BIDIREZIONALE
+// Sostituisce il vecchio sistema CSS .reveal
+// ─────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  // ── Sezioni .reveal (container) ───────────────────────────
+  document.querySelectorAll('.reveal').forEach((el) => {
+    // Rimuoviamo le classi CSS legacy che potrebbero fare conflitto
+    el.classList.remove('active');
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 28 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.95,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          end: 'bottom 10%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
+
+  // ── Text reveal: titoli, paragrafi, span eyebrow ──────────
+  const textRevealSelectors = [
+    'section h2',
+    'section h3',
+    'section p',
+    'section .card',
+    'section > div > span',
+    '.hero-sub',
+  ];
+
+  textRevealSelectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      // Salta elementi già dentro .reveal (animati sopra) o nella hero
+      if (
+        el.closest('.hero-title') ||
+        el.classList.contains('hero-title') ||
+        el.closest('[data-no-reveal]')
+      )
+        return;
+
+      // Check se è dentro un .reveal già animato
+      if (el.closest('.reveal') && el.closest('.reveal') !== el) {
+        // Animazione leggera per elementi figli delle sezioni .reveal
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 16 },
+          {
             opacity: 1,
             y: 0,
-            pointerEvents: "auto",
-            duration: 0.55,
-            ease: "power3.out"
-        });
-    };
-
-    const closeMenu = () => {
-        open = false;
-        gsap.to(menu, {
-            opacity: 0,
-            y: -15,
-            pointerEvents: "none",
-            duration: 0.35,
-            ease: "power2.inOut"
-        });
-    };
-
-    btn.addEventListener("click", () => {
-        if (open) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            if (open) {
-                closeMenu();
-            }
-
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
-//mobile menu landing
-document.querySelectorAll('.js-scroll').forEach((link) => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        const target = document.querySelector(link.getAttribute('href'));
-        if (!target) return;
-
-        gsap.to(window, {
-            duration: 0.9,
-            scrollTo: {
-                y: target,
-                offsetY: 80 // utile se hai header fisso
+            duration: 0.85,
+            ease: 'power2.out',
+            delay: 0.1,
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              end: 'bottom 10%',
+              toggleActions: 'play none none reverse',
             },
-            ease: "power3.inOut"
-        });
+          }
+        );
+      }
     });
+  });
+
+  // ── Cards stagger nelle sezioni ───────────────────────────
+  document.querySelectorAll('.card').forEach((card, i) => {
+    // Raggruppiamo per contenitore per calcolare un indice stagger locale ed evitare delay spropositati
+    const parent = card.parentElement;
+    const siblings = parent ? Array.from(parent.querySelectorAll('.card')) : [];
+    const localIndex = siblings.indexOf(card) >= 0 ? siblings.indexOf(card) : i;
+
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        delay: localIndex * 0.08,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          end: 'bottom 10%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
+
+  // ── Fade-in-section (dintorni page) ───────────────────────
+  document.querySelectorAll('.fade-in-section').forEach((el) => {
+    el.classList.remove('is-visible');
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 28 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.95,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          end: 'bottom 10%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
 });
 
-// Reveal animation on scroll
+// ─────────────────────────────────────────────────────────────
+// LEGACY reveal() — mantenuto per compatibilità (no-op adesso)
+// ScrollTrigger gestisce tutto
+// ─────────────────────────────────────────────────────────────
 function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-        }
-    }
+  // delegato a ScrollTrigger
 }
-
-window.addEventListener("scroll", reveal);
+window.addEventListener('scroll', reveal);
 reveal();
-
-
